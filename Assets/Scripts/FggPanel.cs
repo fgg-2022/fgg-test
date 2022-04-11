@@ -14,6 +14,20 @@ public class FggPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("sdfsd");
+    }
 
+    void OnDrawGizmos()
+    {
+        // Your gizmo drawing thing goes here if required...
+
+#if UNITY_EDITOR
+        // Ensure continuous Update calls.
+        if (!Application.isPlaying)
+        {
+            UnityEditor.EditorApplication.QueuePlayerLoopUpdate();
+            UnityEditor.SceneView.RepaintAll();
+        }
+#endif
     }
 }
