@@ -29,9 +29,10 @@ public class FggPanel : MonoBehaviour
     void Update()
     {
         const string path = "C:/Users/hebo/fgg/actions.json";
-        string jsonStr = File.ReadAllText(path);
-        if (jsonStr != null)
+
+        if (File.Exists(path))
         {
+            string jsonStr = File.ReadAllText(path);
             Debug.Log("接收到输入");
             File.Delete(path);
             Request r = JsonUtility.FromJson<Request>(jsonStr);
