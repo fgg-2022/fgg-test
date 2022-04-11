@@ -28,7 +28,7 @@ public class FggPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        const string path = "~/fgg/actions.json";
+        const string path = "C:/Users/hebo/fgg/actions.json";
         string jsonStr = File.ReadAllText(path);
         if (jsonStr != null)
         {
