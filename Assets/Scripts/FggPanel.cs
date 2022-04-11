@@ -23,14 +23,19 @@ public class FggPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string jsonStr = File.ReadAllText("C:\\Users\\hebo\\Projects\\Unity\\fgg-test\\input\\actions1.json");
-        Request r = JsonUtility.FromJson<Request>(jsonStr);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("sdfsd");
+        const string path = "~/fgg/actions.json";
+        string jsonStr = File.ReadAllText(path);
+        if (jsonStr != null)
+        {
+            File.Delete(path);
+            Request r = JsonUtility.FromJson<Request>(jsonStr);
+            applyRequest(r);
+        }
     }
 
     void OnDrawGizmos()
