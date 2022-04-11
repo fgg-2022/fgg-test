@@ -32,6 +32,7 @@ public class FggPanel : MonoBehaviour
         string jsonStr = File.ReadAllText(path);
         if (jsonStr != null)
         {
+            Debug.Log("接收到输入");
             File.Delete(path);
             Request r = JsonUtility.FromJson<Request>(jsonStr);
             applyRequest(r);
