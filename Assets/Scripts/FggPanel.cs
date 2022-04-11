@@ -46,4 +46,24 @@ public class FggPanel : MonoBehaviour
         }
 #endif
     }
+
+    void applyRequest(Request r)
+    {
+        GameObject obj1 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
+        GameObject obj2 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj2.name));
+
+        Vector3 offset;
+        switch (r.prep)
+        {
+            case "on":
+                offset = new Vector3(0, 1, 0); break;
+            case "above":
+                offset = new Vector3(0, 2, 0); break;
+            case "in":
+                offset = new Vector3(0, 0.5f, 0); break;
+            default:
+                offset = new Vector3(); break;
+        }
+        obj1.transform.position += offset;
+    }
 }
