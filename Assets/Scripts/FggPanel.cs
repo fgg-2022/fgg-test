@@ -59,6 +59,12 @@ public class FggPanel : MonoBehaviour
         GameObject obj1 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
         GameObject obj2 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj2.name));
 
+        if (r.obj1.count == 2)
+        {
+            GameObject obj1cnm = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
+            obj1cnm.transform.position += new Vector3(1, 0.5f, 0);
+        }
+
         Vector3 offset;
         switch (r.prep)
         {
