@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,7 @@ public class FggPanel : MonoBehaviour
             File.Delete(path);
             Request r = JsonUtility.FromJson<Request>(jsonStr);
             applyRequest(r);
-            Debug.Log("生成完成");
+            Debug.Log("生成完成" + DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss.fff"));
         }
     }
 
