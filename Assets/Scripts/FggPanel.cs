@@ -37,6 +37,7 @@ public class FggPanel : MonoBehaviour
             File.Delete(path);
             Request r = JsonUtility.FromJson<Request>(jsonStr);
             applyRequest(r);
+            Debug.Log("生成完成");
         }
     }
 
@@ -62,7 +63,7 @@ public class FggPanel : MonoBehaviour
         if (r.obj1.count == 2)
         {
             GameObject obj1cnm = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
-            obj1cnm.transform.position += new Vector3(1, 0.5f, 0);
+            obj1cnm.transform.position += new Vector3(2, 0.5f, 0);
         }
 
         Vector3 offset;
