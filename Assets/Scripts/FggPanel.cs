@@ -21,6 +21,8 @@ public struct Request
 [ExecuteInEditMode]
 public class FggPanel : MonoBehaviour
 {
+    List<GameObject> generatedGos = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,12 +60,20 @@ public class FggPanel : MonoBehaviour
 
     void applyRequest(Request r)
     {
+        foreach (var go in generatedGos)
+            DestroyImmediate(go);
+        generatedGos.Clear();
+
         GameObject obj1 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
         GameObject obj2 = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj2.name));
+
+        generatedGos.Add(obj1);
+        generatedGos.Add(obj2);
 
         if (r.obj1.count == 2)
         {
             GameObject obj1cnm = Instantiate(Resources.Load<GameObject>("Prefabs/" + r.obj1.name));
+            generatedGos.Add(obj1cnm);
             obj1cnm.transform.position += new Vector3(2, 0.5f, 0);
         }
 
